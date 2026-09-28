@@ -1,0 +1,303 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: white;
+  background:
+    radial-gradient(circle at top, #ff4f91, transparent 35%),
+    linear-gradient(135deg, #16001f, #30002f, #12001a);
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(92%, 700px);
+  margin: auto;
+  padding: 50px 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50px;
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(10px);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+h1 {
+  margin-top: 25px;
+  font-size: clamp(38px, 10vw, 75px);
+  text-shadow: 0 0 25px #ff4f91;
+}
+
+.subtitle {
+  margin-top: 15px;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.subtitle span {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ff8fba;
+}
+
+.card {
+  margin-top: 35px;
+  padding: 35px 25px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 0 25px 70px rgba(0,0,0,.4);
+  backdrop-filter: blur(15px);
+  transform: perspective(800px) rotateX(2deg);
+}
+
+.emoji {
+  font-size: 65px;
+  animation: float 2s infinite ease-in-out;
+}
+
+.card h2 {
+  margin: 20px 0 12px;
+}
+
+.card p {
+  color: #ffd9e8;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 30px;
+  min-height: 60px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 15px 28px;
+  border-radius: 50px;
+  transition: .25s;
+}
+
+#yesBtn {
+  color: white;
+  background: linear-gradient(135deg, #ff267f, #ff0055);
+  box-shadow: 0 0 25px rgba(255,0,100,.5);
+}
+
+#yesBtn:hover {
+  transform: scale(1.1);
+}
+
+#noBtn {
+  color: #333;
+  background: white;
+  position: relative;
+}
+
+#status {
+  margin-top: 20px;
+  min-height: 25px;
+  font-weight: bold;
+}
+
+.loading {
+  margin-top: 35px;
+  padding: 28px;
+  text-align: left;
+  border-radius: 25px;
+  background: rgba(0,0,0,.25);
+}
+
+.loading h3 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.scan p {
+  margin: 15px 0 7px;
+  font-size: 14px;
+}
+
+.bar {
+  height: 10px;
+  background: rgba(255,255,255,.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #ff4f91, #ffb1d0);
+  animation: load 2s ease;
+}
+
+#chanceBar {
+  width: 87%;
+}
+
+.secret {
+  margin-top: 35px;
+}
+
+#secretBtn {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,.3);
+}
+
+#secretBtn:hover {
+  background: rgba(255,255,255,.1);
+}
+
+#secretMessage {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ffd4e5;
+  min-height: 50px;
+}
+
+#success {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  place-items: center;
+  background: rgba(20,0,20,.85);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+}
+
+.successBox {
+  width: min(500px, 95%);
+  padding: 40px 25px;
+  text-align: center;
+  border-radius: 35px;
+  background: linear-gradient(145deg, #ff297f, #8e0059);
+  box-shadow: 0 0 80px rgba(255,0,120,.7);
+  animation: pop .5s ease;
+}
+
+.successBox h1 {
+  font-size: 45px;
+  margin: 15px 0;
+}
+
+.successBox h2 {
+  margin-bottom: 15px;
+}
+
+.successBox p {
+  line-height: 1.7;
+}
+
+.bigHeart {
+  font-size: 80px;
+  animation: heartbeat 1s infinite;
+}
+
+#closeBtn {
+  margin-top: 25px;
+  background: white;
+  color: #c0005d;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: rise linear forwards;
+  z-index: 1;
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  z-index: 200;
+  animation: confettiFall 3s linear forwards;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes load {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(.5) rotate(-5deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes heartbeat {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding-top: 30px;
+  }
+
+  .card {
+    padding: 28px 18px;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  button {
+    padding: 13px 22px;
+  }
+
+  .successBox h1 {
+    font-size: 35px;
+  }
+}
